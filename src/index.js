@@ -5,20 +5,25 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 // Import config fiunction of app store
-import {createAppStore} from './store/config/storeConfig'
+import {createAppAsyncStore, createAppStore} from './store/config/storeConfig'
 import { Provider } from 'react-redux';
 
-let appStore = createAppStore()
+import AppReduxSaga from './AppReduxSaga';
+
+// let appStore = createAppStore()
+let appAsyncStore = createAppAsyncStore();
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Provider store={appStore}>
+  <Provider store={appAsyncStore}>
     <React.StrictMode>
-      <App />
+      {/* <App /> */}
+      <AppReduxSaga />
     </React.StrictMode>
   </Provider>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+// ! LA CLASE VA POR EL MINUTO 37 CON ALGO, LE QUEDAN 21 MIN DE CLASE
+// ! JUSTO ESTA INSTALANDO EL FORMIK
+
 reportWebVitals();
